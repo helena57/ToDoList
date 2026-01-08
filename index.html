@@ -14,11 +14,19 @@
 	
 	<input type="text" id="todo-input" placeholder="Enter a task">
 	<button id="add-btn">Add</button>
-	  <button id="clear-btn">Clear All</button>
+
+<!--<button id="clear-btn">Clear All</button>-->
 	
 	<ul id="todo-list"></ul>
 	
 	<script src="script.js"></script>
+  </div>
+  <div id="confirm-modal" class="modal hidden">
+	  <div class="modal-box">
+		  <p>Clear All tasks?</p>
+		  <button id="confirm-yes">Yes</button>
+		  <buttom id="confirm-no">Cancel</buttom>
+	  </div>
   </div>
 </body>
 </html>
