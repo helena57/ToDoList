@@ -10,6 +10,7 @@
 let input = document.querySelector("#todo-input");
 let button = document.querySelector("#add-btn");
 let list = document.querySelector("#todo-list");
+let clearBtn = document.querySelector("#clear-btn");
 
 // Array is the real data
 let todos = [];
@@ -28,7 +29,7 @@ function saveTodos() {
 // This keeps UI and data in sync
 function renderTodos() {
 	list.innerHTML = "";
-	
+	clearBtn.disabled = todos.length === 0;
 //Flow: 1. Create Element 2. Put Text Inside 3. Attach it to the page
 	for (let i = 0; i < todos.length; i++) {
 		let li = document.createElement("li");
@@ -49,6 +50,13 @@ function renderTodos() {
 	}
 }
 
+// Clear All Function
+function clearTodos() {
+	if (!confirm("Clear all tasks?")) return;
+	todos = []; // resets array
+	localStorage.removeItem("todos"); // Clears storage
+	renderTodos(); // Update UI
+}
 // Click Handler
 // The event listener: This block means When the user clicks the button, run this code.
 
@@ -70,5 +78,6 @@ input.addEventListener("keydown", function (event) {
 		addTodo();
 	}
 });
-
+	
+clearBtn.addEventListener("click", clearTodos);
 
