@@ -10,7 +10,9 @@
 let input = document.querySelector("#todo-input");
 let button = document.querySelector("#add-btn");
 let list = document.querySelector("#todo-list");
-let clearBtn = document.querySelector("#clear-btn");
+let modal = document.querySelector("#confirm-modal");
+let yesBtn = document.querySelector("#confirm-yes");
+let noBtn = document.querySelector("#confirm-no");
 
 // Array is the real data
 let todos = [];
@@ -54,11 +56,20 @@ function renderTodos() {
 
 // Clear All Function
 function clearTodos() {
-	if (!confirm("Clear all tasks?")) return;
-	todos = []; // resets array
-	localStorage.removeItem("todos"); // Clears storage
-	renderTodos(); // Update UI
+	modal.classList.remove("hidden");
 }
+
+yesBtn.addEventListener("click, function () {
+	todos = [];
+	localStorage.removeItem("todos");
+	renderTodos();
+    modal.classList.add("hidden");
+});
+
+noBtn.addEventListener("click", function () {
+	modal.classList.add("hidden");
+});
+
 // Click Handler
 // The event listener: This block means When the user clicks the button, run this code.
 
