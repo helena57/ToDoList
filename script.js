@@ -13,6 +13,7 @@ let list = document.querySelector("#todo-list");
 let modal = document.querySelector("#confirm-modal");
 let yesBtn = document.querySelector("#confirm-yes");
 let noBtn = document.querySelector("#confirm-no");
+let clearBtn = document.querySelector("#clear-btn");
 
 // Array is the real data
 let todos = [];
