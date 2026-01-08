@@ -29,7 +29,9 @@ function saveTodos() {
 // This keeps UI and data in sync
 function renderTodos() {
 	list.innerHTML = "";
-	clearBtn.disabled = todos.length === 0;
+	if (clearBtn) {
+		clearBtn.disabled = todos.length === 0;
+	}
 //Flow: 1. Create Element 2. Put Text Inside 3. Attach it to the page
 	for (let i = 0; i < todos.length; i++) {
 		let li = document.createElement("li");
