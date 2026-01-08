@@ -59,7 +59,7 @@ function clearTodos() {
 	modal.classList.remove("hidden");
 }
 
-yesBtn.addEventListener("click, function () {
+yesBtn.addEventListener("click", function () {
 	todos = [];
 	localStorage.removeItem("todos");
 	renderTodos();
